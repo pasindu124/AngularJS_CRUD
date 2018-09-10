@@ -1,22 +1,19 @@
 var app = angular.module("mainApp",[]);
 app.controller("CRUDController", function ($scope,hexafy) {
-    $scope.Emplist = hexafy.Emplist;
+    $scope.Emplist = hexafy.getData();
     $scope.addData = function () {
         var emp = {
-            id: hexafy.Emplist.length+1,
+            id: $scope.Emplist.length+1,
             name: $scope.name,
             salary: $scope.salary
         }
 
-        hexafy.Emplist.push(emp);
-
-        hexafy.updateLocalStorage()
-        clearModel() //reset all the values to default
+        hexafy.addData_sevice(emp);
+        clearModel();
     }
     $scope.deleteData = function (Emp) {
         var index = $scope.Emplist.indexOf(Emp);
-        $scope.Emplist.splice(index,1);
-        hexafy.updateLocalStorage()
+        hexafy.deleteData_sevice(index);
     }
 
     $scope.bindSelectData = function (Emp) {
@@ -26,13 +23,7 @@ app.controller("CRUDController", function ($scope,hexafy) {
     }
 
     $scope.updateData = function () {
-        for (var i=0;i<hexafy.Emplist.length;i++){
-            if ($scope.Emplist[i].id == $scope.id){
-                $scope.Emplist[i].name = $scope.name;
-                $scope.Emplist[i].salary = $scope.salary;
-            }
-        };
-        hexafy.updateLocalStorage()
+        hexafy.updateData_sevice($scope.id,$scope.name,$scope.salary);
     }
 
     function clearModel() {
@@ -44,14 +35,4 @@ app.controller("CRUDController", function ($scope,hexafy) {
 
 });
 
-app.service('hexafy', function() {
 
-    if(!(localStorage.getItem("Emplist") === null)){
-        this.Emplist = JSON.parse(localStorage.getItem('Emplist'));
-    }else {
-      this.Emplist = [];
-    }
-    this.updateLocalStorage = function () {
-        localStorage.setItem( 'Emplist', JSON.stringify(this.Emplist) );
-    }
-});
