@@ -24,7 +24,7 @@ app.controller("CRUDController", function ($scope) {
         $scope.Emplist.splice(index,1);
         updateLocalStorage()
     }
-    
+
     $scope.bindSelectData = function (Emp) {
         $scope.id=Emp.id;
         $scope.name = Emp.name;
