@@ -1,0 +1,28 @@
+{
+  "name": "angularjs_crud",
+  "version": "1.0.0",
+  "description": "",
+  "main": "controller.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pasindu124/AngularJS_CRUD.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pasindu124/AngularJS_CRUD/issues"
+  },
+  "homepage": "https://github.com/pasindu124/AngularJS_CRUD#readme",
+  "devDependencies": {
+    "bower": "^1.8.4",
+    "jasmine": "^3.2.0",
+    "karma": "^3.0.0"
+  },
+  "dependencies": {
+    "karma-cli": "^1.0.1",
+    "phantomjs": "^2.1.7"
+  }
+}
