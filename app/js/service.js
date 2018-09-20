@@ -11,7 +11,7 @@ app.service('hexafy', function() {
     };
 
     this.addData_sevice = function (emp) {
-        this.Emplist.push(emp)
+        this.Emplist.push(emp);
         this.update_storage();
     };
 
@@ -21,7 +21,7 @@ app.service('hexafy', function() {
     };
 
     this.updateData_sevice = function (id,fname,lname,email,telno) {
-        for (var i=0;i<this.Emplist.length;i++){
+        for (let i=0;i<this.Emplist.length;i++){
             if (this.Emplist[i].id == id){
                 this.Emplist[i].fname = fname;
                 this.Emplist[i].lname = lname;
@@ -33,7 +33,9 @@ app.service('hexafy', function() {
     };
 
     this.update_storage = function () {
-        localStorage.setItem( 'Emplist', JSON.stringify(this.Emplist) );
-    }
+        localStorage.setItem( 'Emplist', JSON.stringify(this.Emplist));
+    };
+
+
 
 });

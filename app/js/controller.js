@@ -1,24 +1,24 @@
-var app = angular.module("mainApp",[]);
+let app = angular.module("mainApp",[]);
 app.controller("CRUDController", function ($scope,hexafy) {
 
     $scope.Emplist = hexafy.getData();
     $scope.addData = function () {
-        var emp = {
+        let emp = {
             id: $scope.Emplist.length+1,
             fname: $scope.fname,
             lname: $scope.lname,
             email: $scope.email,
             telno: $scope.telno
-        }
+        };
 
         hexafy.addData_sevice(emp);
         clearModel();
-    }
+    };
     $scope.deleteData = function (Emp) {
-        var index = $scope.Emplist.indexOf(Emp);
+        let index = $scope.Emplist.indexOf(Emp);
         console.log(index);
         hexafy.deleteData_sevice(index);
-    }
+    };
 
     $scope.bindSelectData = function (Emp) {
         $scope.id=Emp.id;
@@ -26,11 +26,11 @@ app.controller("CRUDController", function ($scope,hexafy) {
         $scope.lname =Emp.lname;
         $scope.email =Emp.email;
         $scope.telno =Emp.telno;
-    }
+    };
 
     $scope.updateData = function () {
         hexafy.updateData_sevice($scope.id,$scope.fname,$scope.lname,$scope.email,$scope.telno);
-    }
+    };
 
     function clearModel() {
         $scope.id=0;

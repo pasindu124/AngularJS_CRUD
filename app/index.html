@@ -23,19 +23,19 @@
                     <p ></p>
                 </div>
                 <div class="row">
-                    <input class="form-control" type="text" placeholder="First Name" ng-model="fname">
+                    <input class="form-control" type="text" value="fname" placeholder="First Name" ng-model="fname">
                 </div>
                 <br>
                 <div class="row">
-                    <input class="form-control" type="text" placeholder="Last Name" ng-model="lname">
+                    <input class="form-control" type="text" value="lname" placeholder="Last Name" ng-model="lname">
                 </div>
                 <br>
                 <div class="row">
-                    <input class="form-control" type="text" placeholder="Email" ng-model="email">
+                    <input class="form-control" type="text" value="email" placeholder="Email" ng-model="email">
                 </div>
                 <br>
                 <div class="row">
-                    <input class="form-control" type="text" placeholder="Tel No" ng-model="telno">
+                    <input class="form-control" type="text" value="telno" placeholder="Tel No" ng-model="telno">
                 </div>
                 <br>
                 <div class="row">
@@ -59,13 +59,13 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr ng-click="bindSelectData(Emp)" ng-repeat="Emp in Emplist track by $index">
+                        <tr class=".abcd" ng-click="bindSelectData(Emp)" ng-repeat="Emp in Emplist track by $index">
                             <th scope="row">{{Emp.id}}</th>
-                            <td>{{Emp.fname}}</td>
+                            <td id="id">{{Emp.fname}}</td>
                             <td>{{Emp.lname}}</td>
                             <td>{{Emp.email}}</td>
                             <td>{{Emp.telno}}</td>
-                            <td><button type="button" class="btn btn-danger" value="delete_data" ng-click="deleteData(Emp)">Delete</button></td>
+                            <td><button id="copyCalc" type="button" class="btn btn-danger" value="delete_data" ng-click="deleteData(Emp)">Delete</button></td>
                         </tr>
 
 
